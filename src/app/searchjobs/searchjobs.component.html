@@ -62,8 +62,8 @@
     <ng-template #jobList>
       <div *ngIf="filteredlistOfJobs; else noresults">
           <div class=row>
-            <div class="col-xs-2">
-              <!-- Total jobs: {{}} -->
+            <div class="col-xs-2 totalJobs">
+              Total jobs: {{totalJobs}}
             </div>
             <div class="col-xs-8">
               <div class="form-group">

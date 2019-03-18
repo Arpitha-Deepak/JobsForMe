@@ -14,6 +14,7 @@ export class SearchjobsComponent implements OnInit {
   listOfJobs: ListOfJobs[];
   filteredlistOfJobs: ListOfJobs[];
   listOfJobAPILoading: boolean = true;
+  totalJobs: number;
 
   applicantType: ApplicantType[] = [
     {id: 1, experienceType: 'Fresher'},
@@ -28,6 +29,7 @@ export class SearchjobsComponent implements OnInit {
   set searchBySkills(value: string) {
     this._searchBySkills = value;
     this.filteredlistOfJobs = this.searchByskillsSet(this._searchBySkills);
+    this.totalJobs = this.filteredlistOfJobs.length;
   }
 
   private _sortexperience: string;
@@ -38,6 +40,7 @@ export class SearchjobsComponent implements OnInit {
   set sortexperience(value: string) {
     this._sortexperience = value;
     this.filteredlistOfJobs = this.sortbyexperience(this._sortexperience);
+    this.totalJobs = this.filteredlistOfJobs.length;
   }
 
   explevel: string;
@@ -59,6 +62,7 @@ export class SearchjobsComponent implements OnInit {
         this.listOfJobs = myData[0];
         this.listOfJobAPILoading = false;
         this.filteredlistOfJobs = this.listOfJobs;
+        this.totalJobs = this.filteredlistOfJobs.length;
         console.log('list of jobs' + this.listOfJobs);
       }
     )
@@ -90,6 +94,7 @@ export class SearchjobsComponent implements OnInit {
     } else {
       this.filteredlistOfJobs = this.filterjobsforexperienced(this._location);
     }
+    this.totalJobs = this.filteredlistOfJobs.length;
   }
 
   searchByskillsSet(searchterm3: string) {
@@ -102,6 +107,7 @@ export class SearchjobsComponent implements OnInit {
         let myData = Object.values(joblist);
         this.listOfJobs = myData[0];
         this.filteredlistOfJobs = this.listOfJobs;
+        this.totalJobs = this.filteredlistOfJobs.length;
       }
     )
   }
