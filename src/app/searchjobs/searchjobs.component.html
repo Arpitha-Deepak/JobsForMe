@@ -1,0 +1,100 @@
+<form>
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">
+      <h3 class="panel-title" style="text-align:center">search jobs</h3>
+    </div>
+
+    <div class="panel-body">
+
+      <div class="row vertical-align">
+        <div class="col-xs-4">
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label for="experience" style="margin-top : 7px">Experience</label>
+            </div>
+            <div class="col-xs-6">
+              <select id="experience" name="experience" [(ngModel)]="experience" class="form-control">
+                <option *ngFor="let explevel of applicantType" [value]="explevel.id">{{explevel.experienceType}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group">
+            <div class="col-xs-3">
+              <label style="margin-top : 7px">Location</label>
+            </div>
+            <div class="col-xs-6">
+              <input name="location" type="text" class="form-control" [(ngModel)]="location">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-xs-4">
+          <button (click)="search()" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="panel-footer">
+    <button class="btn btn-primary" type="submit"></button>
+  </div> -->
+  </div>
+</form>
+<!-- {{listOfJobs | json}} -->
+
+<form>
+  <div class="panel panel-primary">
+
+
+
+    <div class="panel-heading">
+      <h3 class="panel-title" style="text-align:center">Job List</h3>
+    </div>
+    <div *ngIf="listOfJobAPILoading; else jobList">
+        <div class="loader"></div>
+    </div>
+    <ng-template #jobList>
+      <div *ngIf="filteredlistOfJobs; else noresults">
+          <div class=row>
+            <div class="col-xs-2">
+              <!-- Total jobs: {{}} -->
+            </div>
+            <div class="col-xs-8">
+              <div class="form-group">
+                <input type="text" name="sortexperience" class="form-control" [(ngModel)]="sortexperience"
+                  style="margin-top: 30px;float:right;width:40%" placeholder="Sort by experience">
+              </div>
+            </div>
+          </div>
+          <div class=row>
+            <div class="form-group">
+              <div class="col-xs-3" style="margin-top :40px">
+                <input name="searchBySkills" type="text" class="form-control" [(ngModel)]="searchBySkills"
+                  style="margin-left: 20px;" placeholder="Search by Skills">
+              </div>
+            </div>
+            <div class="col-xs-8">
+    
+              <div *ngFor="let job of filteredlistOfJobs">
+                <app-jobsfound [job]="job"></app-jobsfound>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+        <div class = "myPanelFooter">
+            <button class = "btn btn-primary" style="margin-left: 20px;margin-bottom: 10px" (click) ="back()">Back</button>
+      </div>
+    
+      <ng-template #noresults>
+        No Results Found..
+      </ng-template>
+    </ng-template>
+
+<!-- JobList: {{listOfJobs|json}} -->

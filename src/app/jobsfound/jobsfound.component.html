@@ -1,0 +1,101 @@
+<form>
+
+  <div class="panel-body">
+    <div class="row vertical-align">
+      <div class="col-xs-8">
+        <div *ngIf="job">
+          <div *ngIf="job.title" class="row">
+            <div class="col-xs-2">
+              JobTitle
+            </div>
+            <div class="col-xs-6">
+              : {{job.title}}
+            </div>
+          </div>
+          <div *ngIf="job.companyname" class="row">
+            <div class="col-xs-2">
+              Company
+            </div>
+            <div class="col-xs-6">
+              : {{job.companyname}}
+            </div>
+          </div>
+          <div *ngIf="job.location" class="row">
+            <div class="col-xs-2">
+              Location
+            </div>
+            <div class="col-xs-6">
+              : {{job.location}}
+            </div>
+          </div>
+          <div *ngIf="job.salary" class="row">
+            <div class="col-xs-2">
+              Salary
+            </div>
+            <div class="col-xs-6">
+              : {{job.salary}}
+            </div>
+          </div>
+          <div *ngIf="job.type" class="row">
+            <div class="col-xs-2">
+              Type
+            </div>
+            <div class="col-xs-6">
+              : {{job.type}}
+            </div>
+          </div>
+          <div *ngIf="job.experience" class="row">
+            <div class="col-xs-2">
+              experience
+            </div>
+            <div class="col-xs-6">
+              : {{job.experience}}
+            </div>
+          </div>
+          <div *ngIf="job.applylink" class="row">
+            <div class="col-xs-2">
+              applylink
+            </div>
+            <a class="col-xs-10">
+              : {{job.applylink}}
+            </a>
+          </div>
+          <div *ngIf="job.skills" class="row">
+            <div class="col-xs-2">
+              Skills
+            </div>
+            <div class="col-xs-6">
+              : {{job.skills}}
+            </div>
+          </div>
+          <div *ngIf="job.startdate" class="row">
+            <div class="col-xs-2">
+              StartDate
+            </div>
+            <div class="col-xs-6">
+              : {{job.startdate}}
+            </div>
+          </div>
+          <div *ngIf="job.enddate" class="row">
+            <div class="col-xs-2">
+              enddate
+            </div>
+            <div class="col-xs-6">
+              : {{job.enddate}}
+            </div>
+          </div>
+          <div *ngIf="job.source" class="row">
+            <div class="col-xs-2">
+              source
+            </div>
+            <div class="col-xs-6">
+              : {{job.source}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+</form>
